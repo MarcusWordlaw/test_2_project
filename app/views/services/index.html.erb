@@ -1,4 +1,6 @@
 <h1> SHOW ALL </h1>
+
+
 <ul>
 <% serve = @services.each do |service| %>
   <li><%= link_to service.property.address, service_path(service) %></li>
