@@ -1,1 +1,7 @@
-<h1> SHOW ALL </h1>
+<h2> All Properties </h2>
+
+    <ul>
+    <% @properties.each do |property|%>
+        <li><%= link_to property.name, property_path(property)%></li>
+        <% end %>
+    </ul>

@@ -1,1 +1,15 @@
-<h1> SHOW </h1>
+<h2> <%= "Invoice for #{@service.property.name} # #{@service.id}" %></h2>
+
+<ul>
+<li><%="Employee Served:        #{@service.employee.name}"%> </li>
+<li><%="Appointment:       #{@service.appointment}"%> </li>
+<li><%="Labor Cost:      $#{@service.service_cost}"%> </li>
+<li><%="Material Cost:  $#{@service.materials_cost}"%> </li>
+<li><%="Total Cost:    $#{@service.total}"%> </li>
+<li><%="Paid:          #{humanize_boolean(@service.paid)}"%> </li>
+<li><%="Description:          #{@service.job_description}"%> </li>
+</ul>
+
+
+
+<%= link_to "<-Return to Services", services_path %>
