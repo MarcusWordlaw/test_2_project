@@ -3,20 +3,20 @@ class PropertiesController < ApplicationController
   def index
     @properties = Property.all
   end
-  # 
-  # def show
-  #   @property = Property.find(params[:id])
-  # end
-  #
-  # def new
-  #   @property = Property.new
-  # end
-  #
-  # def create
-  #   @property = self.new(property_params)
-  #   @property.save
-  #   redirect_to property_path(@property.id)
-  # end
+  
+  def show
+    @property = Property.find(params[:id])
+  end
+  
+  def new
+    @property = Property.new
+  end
+  
+  def create
+    @property = self.new(property_params)
+    @property.save
+    redirect_to property_path(@property.id)
+  end
   #
   # def edit
   #   @property = Property.find(params[:id])

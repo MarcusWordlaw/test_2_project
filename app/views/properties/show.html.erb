@@ -1,1 +1,12 @@
-<h1> SHOW </h1>
+<h2> <%= @property.name %></h2>
+
+<ul>
+<li><%="Address:        #{@property.address}"%> </li>
+<li><%="Zip Code:       #{@property.zip_code}"%> </li>
+<li><%="Pool Size:      #{@property.pool_size}sq. feet"%> </li>
+<li><%="Pool Material:  #{@property.pool_material}"%> </li>
+<li><%="Pool Cover:     #{humanize_boolean(@property.pool_cover)}"%> </li>
+<li><%="Owner:          #{@property.client.name}"%> </li>
+</ul>
+
+<%= link_to "<-Return to Properties", properties_path %>
