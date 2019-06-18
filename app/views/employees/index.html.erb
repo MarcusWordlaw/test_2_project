@@ -2,7 +2,6 @@
 <ul>
 <% @employees.each do |employee| %>
   <li><%= link_to employee.name, employee_path(employee) %></li>
-  <li><%= link_to employee.title, employee_path(employee) %></li>
 <% end %>
 
 </ul>
