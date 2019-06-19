@@ -2,7 +2,7 @@
 
 <ul>
 <li><%="Employee Served:        #{@service.employee.name}"%> </li>
-<li><%="Appointment:       #{@service.appointment}"%> </li>
+<li><%="Appointment:       #{@service.appointment.strftime(%m/%d/%Y)}"%> </li>
 <li><%="Labor Cost:      $#{@service.service_cost}"%> </li>
 <li><%="Material Cost:  $#{@service.materials_cost}"%> </li>
 <li><%="Total Cost:    $#{@service.total}"%> </li>
