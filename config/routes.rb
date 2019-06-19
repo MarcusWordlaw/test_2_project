@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: 'logout'
   root 'welcomes#index'
-  resources:properties
-  resources:services
-  resources:employees
-  resources:clients
+  resources :properties
+  resources :services
+  resources :employees
+  resources :clients
 
 
 
