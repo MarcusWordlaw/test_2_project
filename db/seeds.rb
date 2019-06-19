@@ -12,9 +12,9 @@ Property.destroy_all
 Service.destroy_all
 
 
-beyonce = Client.create(name: "Beyonce")
-harry = Client.create(name: "Harry")
-ben = Client.create(name: "Ben")
+beyonce = Client.create(username: "Beyonce")
+harry = Client.create(username: "Harry")
+ben = Client.create(username: "Ben")
 
 shaw = Property.create(name: "Shaw", address: "1343 jef land", zip_code: 20001, pool_size: 7500, pool_material: "vinyl" , pool_cover: false , client_id: beyonce.id)
 gtown = Property.create(name: "George Town", address: "1343 M ST nw", zip_code: 20005, pool_size: 9500, pool_material: "plaster" , pool_cover: true, client_id: beyonce.id)

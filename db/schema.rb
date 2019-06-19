@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_06_17_190912) do
 
   create_table "clients", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
   end
 
   create_table "employees", force: :cascade do |t|

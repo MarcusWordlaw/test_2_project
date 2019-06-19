@@ -6,7 +6,7 @@
 <li><%="Pool Size:      #{@property.pool_size}sq. feet"%> </li>
 <li><%="Pool Material:  #{@property.pool_material}"%> </li>
 <li><%="Pool Cover:     #{humanize_boolean(@property.pool_cover)}"%> </li>
-<li><%="Owner:          #{@property.client.name}"%> </li>
+<li><%="Owner:          #{@property.client.username}"%> </li>
 </ul>
 
 <%= link_to "Edit this Property", edit_employee_path %>
