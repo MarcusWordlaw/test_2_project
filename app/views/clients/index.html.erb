@@ -1,0 +1,10 @@
+<h1> SHOW ALL CLIENTS </h1>
+
+<ul>
+<% @clients.each do |client| %>
+  <li><%= link_to client.name, client_path(client) %></li>
+<% end %>
+
+</ul>
+
+<%= link_to "Add New Client", new_client_path %>

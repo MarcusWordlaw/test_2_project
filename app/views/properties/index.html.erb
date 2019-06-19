@@ -1,0 +1,9 @@
+<h2> All Properties </h2>
+
+    <ul>
+    <% @properties.each do |property|%>
+        <li><%= link_to property.name, property_path(property)%></li>
+        <% end %>
+    </ul>
+
+    <%= link_to "Add New property", new_service_path %>

@@ -1,0 +1,9 @@
+<h1> SHOW </h1>
+
+<%= @client.name %>
+
+<%= link_to @client.property.name, property_path %>
+
+<%= link_to "Edit this Client", edit_client_path %>
+
+<%= link_to "<-Return to Clients", clients_path %>

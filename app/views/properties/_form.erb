@@ -1,0 +1,21 @@
+<h3>
+<ol>
+<%= form_for @property do |f| %>
+    <%= f.label :name, "Property Name" %>
+    <%= f.text_area :name %> <br>
+    <%= f.label :address, "Address" %>
+    <%= f.text_area :address %> <br>
+    <%= f.label :zip_code, "Zip Code" %>
+    <%= f.text_area :zip_code %> <br>
+    <%= f.label :pool_size, "Pool Size(sq ft)" %>
+    <%= f.text_area :pool_size %> <br>
+    <%= f.label :pool_material, "pool_material" %>
+    <%= f.text_area :pool_material %> <br>
+    <%= f.label :pool_cover, "Job Description" %>
+    <%= f.text_area :pool_cover %> <br>
+    <%= f.label :client_id  %>
+    <%= f.collection_select(:client_id, Client.all, :id, :name) %> <br>
+    
+    <%= f.submit %>
+<% end %>
+</ol>
