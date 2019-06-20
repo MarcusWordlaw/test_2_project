@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reply: MyText
+  services: one
+
+two:
+  reply: MyText
+  services: two
