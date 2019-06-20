@@ -6,6 +6,9 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
+    @comments = Comment.where(service_id: @service)
+    # .order("created_at DESC") <-add to the end of service
+    # @comment = Comment.new
   end
 
   def new
