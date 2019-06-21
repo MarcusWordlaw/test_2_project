@@ -6,7 +6,8 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    @property = Property.where(client_id: params[:id])
+    @property = Property.find(params[:id])
+    # @property = Property.where(client_id: params[:id])
   end
 
   def new
