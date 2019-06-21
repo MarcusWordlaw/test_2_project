@@ -4,7 +4,7 @@
   <p> in properties/_form.erb <p>
 
 <%= form_for @property do |f| %>
-<% #Needs to have client ID here
+
     <%= f.label :name, "Property Name" %>
     <%= f.text_field :name %> <br>
     <%= f.label :address, "Address" %>
@@ -17,6 +17,7 @@
     <%= f.text_field :pool_material %> <br>
     <%= f.label :pool_cover, "Job Description" %>
     <%= f.text_field :pool_cover %> <br>
+    <%= f.hidden_field :client_id, value: session[:user_id] %>
     <%= f.submit %>
 <% end %>
 </ol>

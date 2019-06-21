@@ -15,6 +15,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     @client.save
+    session[:user_id] = @client.id
     redirect_to client_path(@client.id)
   end
 

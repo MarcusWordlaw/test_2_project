@@ -14,6 +14,7 @@ class PropertiesController < ApplicationController
   end
 
   def create
+
     #Client is not saving to database can check with byebuy
     # property.errors.full_messages
     @property = Property.new(property_params)
@@ -29,7 +30,7 @@ class PropertiesController < ApplicationController
   def update
     @property = Property.find(params[:id])
     @property.update(property_params)
-    redirect_to property_path(@property.id)
+    redirect_to client_path(@property.client)
   end
 
   def destroy
