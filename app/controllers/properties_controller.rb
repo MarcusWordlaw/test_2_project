@@ -6,7 +6,7 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    @property = Property.find(params[:id])
+    @property = Property.where(client_id: params[:id])
   end
 
   def new
@@ -14,6 +14,8 @@ class PropertiesController < ApplicationController
   end
 
   def create
+    #Client is not saving to database can check with byebuy
+    # property.errors.full_messages
     @property = Property.new(property_params)
     @property.save
     redirect_to property_path(@property.id)

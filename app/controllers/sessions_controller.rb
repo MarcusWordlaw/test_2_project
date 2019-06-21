@@ -2,12 +2,12 @@ class SessionsController < ApplicationController
   def new
   end
 
-  def create
+  def login
     @client = Client.find_by(username: params[:username])
 
     if @client
       session[:user_id] = @client.id
-      redirect_to properties_path
+      redirect_to client_path(@client.id)
     else
       flash["notice"] = "User not found"
       render :new
