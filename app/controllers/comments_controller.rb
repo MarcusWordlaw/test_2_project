@@ -16,12 +16,12 @@ class CommentsController < ApplicationController
 
     def create
         clientID = get_current_client.id 
-        service = params[:id]
+        service = @service.id
         replyins = params[:comment][:reply]
         removediv = replyins.split("</div>")
         removedivi = removediv.join("").split("<div>")
         replyfinal = removedivi.join("")      
-       @comment = Comment.create(reply: replyfinal, service_id: service, client_id: clientID)
+        @comment = Comment.create(reply: replyfinal, service_id: service, client_id: clientID)
        
     #    if @comment.save
            redirect_to service_path(@service)
@@ -47,9 +47,6 @@ class CommentsController < ApplicationController
 
     def update
         @comment = @service.comments.find(params[:id])
-        
-        
-       
         if  @comment.update(reply: params["comment"]["reply"])
            # (params[:comment]).permit(:reply, :service_id, :client_id)
             redirect_to service_path(@service)

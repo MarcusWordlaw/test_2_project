@@ -1,7 +1,9 @@
 class ServicesController < ApplicationController
 
   def index
-    @services = Service.all
+    
+    @properties = get_current_client.properties
+    
   end
 
   def show
