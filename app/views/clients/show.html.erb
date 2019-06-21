@@ -1,9 +1,12 @@
-<h1> SHOW </h1>
+<h1> clients/show.html.erb </h1>
 
-<%= @client.username %>
+<%= @client.username %><br>
+<% #Should send client ID to new formm
+<% boolean_var = @client.properties.empty? %>
+<% if boolean_var %>
+<%= link_to "Add properties for this client", new_property_path(@client)  %><br>
+<% else %>
+  <%= link_to "Navigate to #{@client.username.pluralize} properties", property_path(@client.id) %><br>
+<% end %>
 
-<%= link_to @client.property.username, property_path %>
-
-<%= link_to "Edit this Client", edit_client_path %>
-
-<%= link_to "<-Return to Clients", clients_path %>
+<%= link_to "Edit this Client", edit_client_path %><br>
