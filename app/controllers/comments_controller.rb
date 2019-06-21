@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
     before_action :find_service
-    # before_action :find_comment, only: [:destroy, :edit, :update]
+    # before_action :find_comment, only: [:edit, :update]
 
 
     # before_action :authenticate_client!
@@ -16,40 +16,47 @@ class CommentsController < ApplicationController
 
     def create
         clientID = get_current_client.id 
+        service = params[:id]
         replyins = params[:comment][:reply]
         removediv = replyins.split("</div>")
         removedivi = removediv.join("").split("<div>")
-        replyfinal = removedivi.join("")
-s        
+        replyfinal = removedivi.join("")      
        @comment = Comment.create(reply: replyfinal, service_id: service, client_id: clientID)
        
-       if @comment.save
+    #    if @comment.save
            redirect_to service_path(@service)
-        else
-            render 'new'
-        end
+        # else
+        #     render 'new'
+        # end
     end
 
-    # def destroy
-    #     byebug
-    #     @comment = @service.comments.find(params[:id])
-    #     @comment.destroy
+    def destroy
+     
+        @comment = @service.comments.find(params[:id])
+        @comment.destroy
       
-    #     redirect_to service_path(@service)
-    # end
+        redirect_to service_path(@service)
+    end
 
-    # def edit
+    def edit
+   
+        @comment = @service.comments.find(params[:id])
 
         
-    # end
+    end
 
-    # def update
-    #     if @comment.update(params[:comment]).permit(:reply)
-    #         redirect_to service_path(@service)
-    #     else
-    #         render 'edit'
-    #     end
-    # end
+    def update
+        @comment = @service.comments.find(params[:id])
+        
+        
+       
+        if  @comment.update(reply: params["comment"]["reply"])
+           # (params[:comment]).permit(:reply, :service_id, :client_id)
+            redirect_to service_path(@service)
+        else
+            render 'edit'
+        end
+    end
 
 
     private
@@ -59,8 +66,8 @@ s
     end
 
     # def find_comment
-        
-    #     @comment = Comment.all.find(params[:id])
+    #      byebug
+    #     @comment = @service.comments.find(params[:id])
     # end
         #
 

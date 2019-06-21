@@ -1,4 +1,4 @@
-<p class="text-sm text-grey-dark my-2">comment as </p>
+<p class="text-sm text-grey-dark my-2">comment as <%=@service.property.client.username%> </p>
 
 <%= form_for ([@service, @service.comments.build]) do |f|%>
     <div class="relative">
