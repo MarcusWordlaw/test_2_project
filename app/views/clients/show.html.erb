@@ -1,12 +1,23 @@
 <h1> clients/show.html.erb </h1>
 
 <%= @client.username %><br>
-<% #Should send client ID to new formm
+
 <% boolean_var = @client.properties.empty? %>
 <% if boolean_var %>
-<%= link_to "Add properties for this client", new_property_path(@client)  %><br>
+<%= link_to "Add properties for this client", new_property_path %><br>
 <% else %>
-  <%= link_to "Navigate to #{@client.username.pluralize} properties", property_path(@client.id) %><br>
+  <% @client.properties.each do |client_property| %>
+    <h2> <%= client_property.name %></h2>
+    <ul>
+
+      <li><%="Address:        #{client_property.address}"%> </li>
+      <li><%="Zip Code:       #{client_property.zip_code}"%> </li>
+      <li><%="Pool Size:      #{client_property.pool_size}sq. feet"%> </li>
+      <li><%="Pool Material:  #{client_property.pool_material}"%> </li>
+      <li><%="Pool Cover:     #{humanize_boolean(client_property.pool_cover)}"%> </li>
+    </ul><br>
+    <%= link_to "Edit this Property", edit_property_path(client_property) %><br>
+    <% end %>
 <% end %>
 
 <%= link_to "Edit this Client", edit_client_path %><br>

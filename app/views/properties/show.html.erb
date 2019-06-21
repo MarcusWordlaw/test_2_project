@@ -2,20 +2,5 @@
 
 
 
-<% @property.each do |client_property| %>
-  <h2> <%= client_property.name %></h2>
-  <ul>
-    <% @client_persist_id = @property[0].client_id %>
-    <li><%="Address:        #{client_property.address}"%> </li>
-    <li><%="Zip Code:       #{client_property.zip_code}"%> </li>
-    <li><%="Pool Size:      #{client_property.pool_size}sq. feet"%> </li>
-    <li><%="Pool Material:  #{client_property.pool_material}"%> </li>
-    <li><%="Pool Cover:     #{humanize_boolean(client_property.pool_cover)}"%> </li>
-    <li><%="Owner:          #{client_property.client.username}"%> </li>
-  </ul><br>
-  <%= link_to "Edit this Property", edit_property_path(client_property) %><br>
-<% end %>
 
-
-
-<%= link_to "<-Return to Client", client_path %>
+<%= link_to "<-Return to Client", client_path(session[:user_id]) %>
