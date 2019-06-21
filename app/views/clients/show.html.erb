@@ -16,6 +16,7 @@
       <li><%="Pool Material:  #{client_property.pool_material}"%> </li>
       <li><%="Pool Cover:     #{humanize_boolean(client_property.pool_cover)}"%> </li>
     </ul><br>
+    <%= link_to "Create Service Invoice", new_service_path(client_property) %><br>
     <%= link_to "Edit this Property", edit_property_path(client_property) %><br>
     <% end %>
 <% end %>
