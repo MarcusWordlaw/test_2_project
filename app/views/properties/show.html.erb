@@ -1,5 +1,5 @@
 <h2> <%= @property.name %></h2>
-
+<div>
 <ul>
 <li><%="Address:        #{@property.address}"%> </li>
 <li><%="Zip Code:       #{@property.zip_code}"%> </li>
@@ -8,6 +8,13 @@
 <li><%="Pool Cover:     #{humanize_boolean(@property.pool_cover)}"%> </li>
 <li><%="Owner:          #{@property.client.username}"%> </li>
 </ul>
+</div>
+<br>
+<div>
+<p>The projected cost of a weekly maintenance is $<%= sprintf('%.2f', total_cost)%>.</p>
+</div>
 
+<div>
 <%= link_to "Edit this Property", edit_employee_path %>
 <%= link_to "<-Return to Properties", properties_path %>
+</div>

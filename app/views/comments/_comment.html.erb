@@ -1,5 +1,7 @@
 <% @comments.each do|comment|%>
-    <p><%= comment.reply %></p>
-    <%end%>
+    <p><%=" #{comment.client.username} commented #{comment.reply}"%></p>
+    <%= button_to "Delete comment", service_comment_path(comment), method: :delete%>
+    <%= link_to "Edit Comment", edit_service_comment_path(comment) %>
+<%end%>
 
   
